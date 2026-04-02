@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HadleyLab Health</title>
+<style>
+  :root { --bg: #0d1117; --card: #161b22; --border: #30363d; --text: #c9d1d9; --dim: #8b949e; --green: #3fb950; --red: #f85149; --yellow: #d29922; --blue: #58a6ff; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text); padding: 2rem; max-width: 960px; margin: 0 auto; }
+  h1 { font-size: 1.5rem; font-weight: 600; margin-bottom: 0.25rem; }
+  .subtitle { color: var(--dim); font-size: 0.875rem; margin-bottom: 2rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 1rem; }
+  .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; }
+  .card-title { font-weight: 600; font-size: 0.9rem; }
+  .badge { font-size: 0.75rem; padding: 2px 8px; border-radius: 12px; font-weight: 500; }
+  .badge-ok { background: rgba(63,185,80,0.15); color: var(--green); }
+  .badge-alert { background: rgba(248,81,73,0.15); color: var(--red); }
+  .badge-stale { background: rgba(210,153,34,0.15); color: var(--yellow); }
+  .badge-pending { background: rgba(139,148,158,0.15); color: var(--dim); }
+  .detail { font-size: 0.8rem; color: var(--dim); line-height: 1.6; }
+  .detail strong { color: var(--text); }
+  .domains { margin-top: 0.5rem; }
+  .domain { display: flex; justify-content: space-between; font-size: 0.8rem; padding: 2px 0; }
+  .domain-status { font-weight: 600; }
+  .timestamp { font-size: 0.75rem; color: var(--dim); margin-top: 0.5rem; }
+  .footer { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: 0.75rem; color: var(--dim); display: flex; justify-content: space-between; }
+  a { color: var(--blue); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .summary { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; font-size: 0.875rem; }
+  .summary-item { display: flex; align-items: center; gap: 0.5rem; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .dot-green { background: var(--green); }
+  .dot-red { background: var(--red); }
+  .dot-yellow { background: var(--yellow); }
+  .dot-gray { background: var(--dim); }
+</style>
+</head>
+<body>
+
+<h1>HadleyLab Health</h1>
+<p class="subtitle">Infrastructure monitoring for the HadleyLab fleet</p>
+
+<div class="summary" id="summary"></div>
+<div class="grid" id="grid"></div>
+
+<div class="footer">
+  <span>Governed by <a href="https://github.com/hadleylab-canonic/fleet">hadleylab-canonic/fleet</a></span>
+  <span id="last-updated"></span>
+</div>
+
+<script>
+const TASKS = [
+  { name: 'UPTIME', file: '_data/UPTIME.json', schedule: 'hourly' },
+  { name: 'BUILD', file: '_data/BUILD.json', schedule: 'hourly' },
+  { name: 'HN-SCOUT', file: '_data/HN-SCOUT.json', schedule: 'hourly' },
+  { name: 'CAMPAIGN', file: '_data/CAMPAIGN.json', schedule: 'hourly' },
+  { name: 'GRANTS', file: '_data/GRANTS.json', schedule: 'daily' },
+  { name: 'LINKS', file: '_data/LINKS.json', schedule: 'daily' },
+  { name: 'SEO', file: '_data/SEO.json', schedule: 'daily' },
+  { name: 'CITATIONS', file: '_data/CITATIONS.json', schedule: 'weekly' },
+];
+
+const STALE_HOURS = { hourly: 2, daily: 26, weekly: 170 };
+
+function ago(ts) {
+  const d = Date.now() - new Date(ts).getTime();
+  const m = Math.floor(d / 60000);
+  if (m < 60) return m + 'm ago';
+  const h = Math.floor(m / 60);
+  if (h < 24) return h + 'h ago';
+  return Math.floor(h / 24) + 'd ago';
+}
+
+function status(data, schedule) {
+  if (!data) return 'pending';
+  const hrs = (Date.now() - new Date(data.timestamp).getTime()) / 3600000;
+  if (hrs > STALE_HOURS[schedule]) return 'stale';
+  if ((data.alert_count || 0) > 0) return 'alert';
+  return 'ok';
+}
+
+function renderUptime(data) {
+  if (!data || !data.results) return '';
+  return '<div class="domains">' + data.results.map(r =>
+    `<div class="domain"><span>${r.domain}</span><span class="domain-status" style="color:${r.status >= 200 && r.status < 400 ? 'var(--green)' : 'var(--red)'}">${r.status} · ${Math.round(r.time_ms)}ms${r.ssl_days_left > 0 ? ' · SSL ' + r.ssl_days_left + 'd' : ''}</span></div>`
+  ).join('') + '</div>';
+}
+
+function renderBuild(data) {
+  if (!data || !data.results) return '';
+  return data.results.map(r =>
+    `<div class="detail"><strong>${r.repo.split('/')[1]}</strong>: ${r.conclusion || r.status}</div>`
+  ).join('');
+}
+
+function renderHN(data) {
+  if (!data) return '';
+  const n = (data.threads || []).length;
+  if (n === 0) return '<div class="detail">No threads in last 24h</div>';
+  return '<div class="detail"><strong>' + n + ' threads</strong> found</div>' +
+    (data.threads || []).slice(0, 3).map(t =>
+      `<div class="detail">· <a href="${t.url || '#'}">${(t.title || '').slice(0, 50)}</a> (${t.points}pts)</div>`
+    ).join('');
+}
+
+function renderGrants(data) {
+  if (!data) return '';
+  const dl = (data.deadlines || []).filter(d => d.days_left <= 30);
+  if (dl.length === 0) return '<div class="detail">No urgent deadlines</div>';
+  return dl.map(d =>
+    `<div class="detail" style="color:${d.urgency === 'CRITICAL' ? 'var(--red)' : d.urgency === 'URGENT' ? 'var(--yellow)' : 'var(--text)'}"><strong>${d.date}</strong> · ${d.urgency} (${d.days_left}d)</div>`
+  ).join('');
+}
+
+function renderLinks(data) {
+  if (!data) return '';
+  return `<div class="detail"><strong>${data.total_checked || 0}</strong> checked · <strong style="color:${(data.broken_count || 0) > 0 ? 'var(--red)' : 'var(--green)'}">${data.broken_count || 0} broken</strong></div>`;
+}
+
+function renderSEO(data) {
+  if (!data || !data.results) return '';
+  return data.results.map(r =>
+    `<div class="detail"><strong>${r.domain}</strong>: sitemap ${r.sitemap_urls || '?'} URLs · OG ${r.og_title ? 'OK' : 'missing'}</div>`
+  ).join('');
+}
+
+function renderCitations(data) {
+  if (!data) return '';
+  return `<div class="detail"><strong>${data.total_checked || 0}</strong> checked · <strong style="color:${(data.broken_count || 0) > 0 ? 'var(--red)' : 'var(--green)'}">${data.broken_count || 0} broken</strong></div>`;
+}
+
+function renderCampaign(data) {
+  if (!data) return '';
+  const n = (data.emissions || []).length;
+  if (n === 0) return '<div class="detail">No emissions tracked</div>';
+  return (data.emissions || []).slice(0, 3).map(e =>
+    `<div class="detail">· ${(e.title || 'unknown').slice(0, 40)} (${e.score || 0}pts, ${e.comments || 0} comments)</div>`
+  ).join('');
+}
+
+const RENDERERS = {
+  UPTIME: renderUptime, BUILD: renderBuild, 'HN-SCOUT': renderHN,
+  CAMPAIGN: renderCampaign, GRANTS: renderGrants, LINKS: renderLinks,
+  SEO: renderSEO, CITATIONS: renderCitations
+};
+
+async function load() {
+  const grid = document.getElementById('grid');
+  const summary = document.getElementById('summary');
+  let counts = { ok: 0, alert: 0, stale: 0, pending: 0 };
+  let latestTs = null;
+
+  for (const task of TASKS) {
+    let data = null;
+    try {
+      const res = await fetch(task.file + '?t=' + Date.now());
+      if (res.ok) data = await res.json();
+    } catch (e) {}
+
+    const s = status(data, task.schedule);
+    counts[s]++;
+    if (data && data.timestamp && (!latestTs || data.timestamp > latestTs)) latestTs = data.timestamp;
+
+    const badgeClass = { ok: 'badge-ok', alert: 'badge-alert', stale: 'badge-stale', pending: 'badge-pending' }[s];
+    const badgeText = { ok: 'Healthy', alert: 'Alert', stale: 'Stale', pending: 'Pending' }[s];
+
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <div class="card-header">
+        <span class="card-title">${task.name}</span>
+        <span class="badge ${badgeClass}">${badgeText}</span>
+      </div>
+      ${RENDERERS[task.name] ? RENDERERS[task.name](data) : ''}
+      <div class="timestamp">${task.schedule} · ${data ? ago(data.timestamp) : 'never'}</div>
+    `;
+    grid.appendChild(card);
+  }
+
+  summary.innerHTML = [
+    counts.ok > 0 ? `<div class="summary-item"><span class="dot dot-green"></span>${counts.ok} healthy</div>` : '',
+    counts.alert > 0 ? `<div class="summary-item"><span class="dot dot-red"></span>${counts.alert} alerts</div>` : '',
+    counts.stale > 0 ? `<div class="summary-item"><span class="dot dot-yellow"></span>${counts.stale} stale</div>` : '',
+    counts.pending > 0 ? `<div class="summary-item"><span class="dot dot-gray"></span>${counts.pending} pending</div>` : '',
+  ].join('');
+
+  document.getElementById('last-updated').textContent = latestTs ? 'Last data: ' + ago(latestTs) : '';
+}
+
+load();
+setInterval(load, 300000); // refresh every 5 min
+</script>
+</body>
+</html>
