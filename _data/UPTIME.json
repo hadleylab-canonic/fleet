@@ -1,0 +1,13 @@
+{"_generated": true, "task": "UPTIME", "timestamp": "2026-04-02T19:20:24Z", "results": [
+  {"domain": "hadleylab.org", "status": 200, "time_ms": 142, "ssl_expiry": "May 28 21:14:08 2026 GMT", "ssl_days_left": 56}
+,
+  {"domain": "canonic.org", "status": 200, "time_ms": 184, "ssl_expiry": "May 17 03:18:30 2026 GMT", "ssl_days_left": 44}
+,
+  {"domain": "mammochat.com", "status": 301, "time_ms": 59, "ssl_expiry": "Jun  1 16:31:00 2026 GMT", "ssl_days_left": 59}
+,
+  {"domain": "caribchat.ai", "status": 200, "time_ms": 136, "ssl_expiry": "Jun  2 23:12:19 2026 GMT", "ssl_days_left": 61}
+,
+  {"domain": "app.mammochat.ai", "status": 200, "time_ms": 137, "ssl_expiry": "Jun  7 02:36:58 2026 GMT", "ssl_days_left": 65}
+,
+  {"domain": "app.caribchat.ai", "status": 200, "time_ms": 74, "ssl_expiry": "Jun  2 19:18:59 2026 GMT", "ssl_days_left": 60}
+], "alert_count": 0}
