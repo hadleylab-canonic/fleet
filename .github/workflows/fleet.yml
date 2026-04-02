@@ -1,0 +1,110 @@
+name: TASK FLEET
+
+on:
+  schedule:
+    - cron: '7 * * * *'   # hourly
+    - cron: '37 8 * * *'  # daily
+    - cron: '13 10 * * 1' # weekly Mon
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  hourly:
+    if: github.event_name == 'workflow_dispatch' || github.event.schedule == '7 * * * *'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: UPTIME
+        run: bash scripts/uptime.sh
+        continue-on-error: true
+      - name: BUILD
+        run: bash scripts/build.sh
+        continue-on-error: true
+      - name: HN-SCOUT
+        run: bash scripts/hn-scout.sh
+        continue-on-error: true
+      - name: CAMPAIGN
+        run: bash scripts/campaign.sh
+        env:
+          REPO_DIR: '.'
+        continue-on-error: true
+      - name: Commit
+        run: |
+          git config user.name "TASK FLEET"
+          git config user.email "fleet@canonic.org"
+          git add _data/
+          git diff --cached --quiet && echo "No changes" && exit 0
+          SUMMARY=$(for f in _data/*.json; do
+            NAME=$(basename "$f" .json)
+            ALERTS=$(jq -r '.alert_count // 0' "$f" 2>/dev/null || echo 0)
+            [ "$ALERTS" -gt 0 ] && echo "$NAME:ALERT" || echo "$NAME:OK"
+          done | tr '\n' ' ')
+          git commit -m "TASK FLEET: hourly — $SUMMARY"
+          git push
+
+  daily:
+    if: github.event_name == 'workflow_dispatch' || github.event.schedule == '37 8 * * *'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Checkout hadleylab-canonic
+        uses: actions/checkout@v4
+        with:
+          repository: hadleylab-canonic/hadleylab-canonic
+          path: hadleylab
+          token: ${{ secrets.HADLEYLAB_TOKEN }}
+      - name: GRANTS
+        run: REPO_DIR=hadleylab bash scripts/grants.sh
+        continue-on-error: true
+      - name: LINKS
+        run: REPO_DIR=hadleylab bash scripts/links.sh
+        continue-on-error: true
+      - name: SEO
+        run: bash scripts/seo.sh
+        continue-on-error: true
+      - name: Commit
+        run: |
+          git config user.name "TASK FLEET"
+          git config user.email "fleet@canonic.org"
+          git add _data/
+          git diff --cached --quiet && echo "No changes" && exit 0
+          SUMMARY=$(for f in _data/*.json; do
+            NAME=$(basename "$f" .json)
+            ALERTS=$(jq -r '.alert_count // 0' "$f" 2>/dev/null || echo 0)
+            [ "$ALERTS" -gt 0 ] && echo "$NAME:ALERT" || echo "$NAME:OK"
+          done | tr '\n' ' ')
+          git commit -m "TASK FLEET: daily — $SUMMARY"
+          git push
+
+  weekly:
+    if: github.event_name == 'workflow_dispatch' || github.event.schedule == '13 10 * * 1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Checkout hadleylab-canonic
+        uses: actions/checkout@v4
+        with:
+          repository: hadleylab-canonic/hadleylab-canonic
+          path: hadleylab
+          token: ${{ secrets.HADLEYLAB_TOKEN }}
+      - name: CITATIONS
+        run: REPO_DIR=hadleylab bash scripts/citations.sh
+        continue-on-error: true
+      - name: Commit
+        run: |
+          git config user.name "TASK FLEET"
+          git config user.email "fleet@canonic.org"
+          git add _data/
+          git diff --cached --quiet && echo "No changes" && exit 0
+          SUMMARY=$(for f in _data/*.json; do
+            NAME=$(basename "$f" .json)
+            ALERTS=$(jq -r '.alert_count // 0' "$f" 2>/dev/null || echo 0)
+            [ "$ALERTS" -gt 0 ] && echo "$NAME:ALERT" || echo "$NAME:OK"
+          done | tr '\n' ' ')
+          git commit -m "TASK FLEET: weekly — $SUMMARY"
+          git push
