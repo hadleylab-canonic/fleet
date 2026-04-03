@@ -2,99 +2,78 @@ name: TASK FLEET
 
 on:
   schedule:
-    - cron: '7 * * * *'   # hourly
-    - cron: '37 8 * * *'  # daily
-    - cron: '13 10 * * 1' # weekly Mon
+    - cron: '7 * * * *'  # hourly at :07
   workflow_dispatch: {}
 
 permissions:
   contents: write
 
 jobs:
-  hourly:
-    if: github.event_name == 'workflow_dispatch' || github.event.schedule == '7 * * * *'
+  fleet:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+
+      - name: Checkout hadleylab-canonic
+        uses: actions/checkout@v4
+        with:
+          repository: hadleylab-canonic/hadleylab-canonic
+          path: hadleylab
+          token: ${{ secrets.HADLEYLAB_TOKEN }}
+
+      # ── Hourly tasks ──
       - name: UPTIME
         run: bash scripts/uptime.sh
         continue-on-error: true
+
       - name: BUILD
         run: bash scripts/build.sh
         continue-on-error: true
+
       - name: HN-SCOUT
         run: bash scripts/hn-scout.sh
         continue-on-error: true
+
       - name: CAMPAIGN
-        run: bash scripts/campaign.sh
-        env:
-          REPO_DIR: '.'
+        run: REPO_DIR=hadleylab bash scripts/campaign.sh
         continue-on-error: true
-      - name: Commit
-        run: |
-          git config user.name "TASK FLEET"
-          git config user.email "fleet@canonic.org"
-          git add _data/
-          git diff --cached --quiet && echo "No changes" && exit 0
-          SUMMARY=$(for f in _data/*.json; do
-            NAME=$(basename "$f" .json)
-            ALERTS=$(jq -r '.alert_count // 0' "$f" 2>/dev/null || echo 0)
-            [ "$ALERTS" -gt 0 ] && echo "$NAME:ALERT" || echo "$NAME:OK"
-          done | tr '\n' ' ')
-          git commit -m "TASK FLEET: hourly — $SUMMARY"
-          git push
 
-  daily:
-    if: github.event_name == 'workflow_dispatch' || github.event.schedule == '37 8 * * *'
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    steps:
-      - uses: actions/checkout@v4
-      - name: Checkout hadleylab-canonic
-        uses: actions/checkout@v4
-        with:
-          repository: hadleylab-canonic/hadleylab-canonic
-          path: hadleylab
-          token: ${{ secrets.HADLEYLAB_TOKEN }}
+      # ── Daily tasks (skip if ran within 20h) ──
       - name: GRANTS
-        run: REPO_DIR=hadleylab bash scripts/grants.sh
-        continue-on-error: true
-      - name: LINKS
-        run: REPO_DIR=hadleylab bash scripts/links.sh
-        continue-on-error: true
-      - name: SEO
-        run: bash scripts/seo.sh
-        continue-on-error: true
-      - name: Commit
         run: |
-          git config user.name "TASK FLEET"
-          git config user.email "fleet@canonic.org"
-          git add _data/
-          git diff --cached --quiet && echo "No changes" && exit 0
-          SUMMARY=$(for f in _data/*.json; do
-            NAME=$(basename "$f" .json)
-            ALERTS=$(jq -r '.alert_count // 0' "$f" 2>/dev/null || echo 0)
-            [ "$ALERTS" -gt 0 ] && echo "$NAME:ALERT" || echo "$NAME:OK"
-          done | tr '\n' ' ')
-          git commit -m "TASK FLEET: daily — $SUMMARY"
-          git push
+          LAST=$(jq -r '.timestamp // "1970-01-01T00:00:00Z"' _data/GRANTS.json 2>/dev/null || echo "1970-01-01T00:00:00Z")
+          AGE=$(( ($(date +%s) - $(date -d "$LAST" +%s 2>/dev/null || echo 0)) / 3600 ))
+          if [ "$AGE" -lt 20 ]; then echo "SKIP: GRANTS ran ${AGE}h ago"; exit 0; fi
+          REPO_DIR=hadleylab bash scripts/grants.sh
+        continue-on-error: true
 
-  weekly:
-    if: github.event_name == 'workflow_dispatch' || github.event.schedule == '13 10 * * 1'
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-    steps:
-      - uses: actions/checkout@v4
-      - name: Checkout hadleylab-canonic
-        uses: actions/checkout@v4
-        with:
-          repository: hadleylab-canonic/hadleylab-canonic
-          path: hadleylab
-          token: ${{ secrets.HADLEYLAB_TOKEN }}
-      - name: CITATIONS
-        run: REPO_DIR=hadleylab bash scripts/citations.sh
+      - name: LINKS
+        run: |
+          LAST=$(jq -r '.timestamp // "1970-01-01T00:00:00Z"' _data/LINKS.json 2>/dev/null || echo "1970-01-01T00:00:00Z")
+          AGE=$(( ($(date +%s) - $(date -d "$LAST" +%s 2>/dev/null || echo 0)) / 3600 ))
+          if [ "$AGE" -lt 20 ]; then echo "SKIP: LINKS ran ${AGE}h ago"; exit 0; fi
+          REPO_DIR=hadleylab bash scripts/links.sh
         continue-on-error: true
+
+      - name: SEO
+        run: |
+          LAST=$(jq -r '.timestamp // "1970-01-01T00:00:00Z"' _data/SEO.json 2>/dev/null || echo "1970-01-01T00:00:00Z")
+          AGE=$(( ($(date +%s) - $(date -d "$LAST" +%s 2>/dev/null || echo 0)) / 3600 ))
+          if [ "$AGE" -lt 20 ]; then echo "SKIP: SEO ran ${AGE}h ago"; exit 0; fi
+          bash scripts/seo.sh
+        continue-on-error: true
+
+      # ── Weekly tasks (skip if ran within 6d) ──
+      - name: CITATIONS
+        run: |
+          LAST=$(jq -r '.timestamp // "1970-01-01T00:00:00Z"' _data/CITATIONS.json 2>/dev/null || echo "1970-01-01T00:00:00Z")
+          AGE=$(( ($(date +%s) - $(date -d "$LAST" +%s 2>/dev/null || echo 0)) / 3600 ))
+          if [ "$AGE" -lt 144 ]; then echo "SKIP: CITATIONS ran ${AGE}h ago"; exit 0; fi
+          REPO_DIR=hadleylab bash scripts/citations.sh
+        continue-on-error: true
+
+      # ── Commit all results ──
       - name: Commit
         run: |
           git config user.name "TASK FLEET"
@@ -102,9 +81,10 @@ jobs:
           git add _data/
           git diff --cached --quiet && echo "No changes" && exit 0
           SUMMARY=$(for f in _data/*.json; do
+            [ -f "$f" ] || continue
             NAME=$(basename "$f" .json)
             ALERTS=$(jq -r '.alert_count // 0' "$f" 2>/dev/null || echo 0)
             [ "$ALERTS" -gt 0 ] && echo "$NAME:ALERT" || echo "$NAME:OK"
           done | tr '\n' ' ')
-          git commit -m "TASK FLEET: weekly — $SUMMARY"
+          git commit -m "TASK FLEET: $SUMMARY"
           git push
