@@ -1,0 +1,28 @@
+{
+  "_generated": true,
+  "task": "GRANTS",
+  "timestamp": "2026-04-03T01:24:59Z",
+  "deadlines": [
+    {
+      "date": "2026-04-08",
+      "days_left": 4,
+      "urgency": "URGENT"
+    },
+    {
+      "date": "2026-04-09",
+      "days_left": 5,
+      "urgency": "URGENT"
+    },
+    {
+      "date": "2026-04-30",
+      "days_left": 26,
+      "urgency": "NOTICE"
+    },
+    {
+      "date": "2026-05-21",
+      "days_left": 47,
+      "urgency": "INFO"
+    }
+  ],
+  "alert_count": 2
+}

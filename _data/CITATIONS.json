@@ -1,0 +1,43 @@
+{"_generated": true, "task": "CITATIONS", "timestamp": "2026-04-03T01:27:17Z", "broken": [
+  {"url": "https://cms-lawnow.com", "status": 403}
+,
+  {"url": "https://deputyprimeminister.gov.mt/en/dhir/", "status": 530}
+,
+  {"url": "https://dlapiper.com", "status": 429}
+,
+  {"url": "https://doi.org/10.1016/S2214-109X(22", "status": 404}
+,
+  {"url": "https://grantome.com/grant/NIH/U19-AR076737-01", "status": 000000}
+,
+  {"url": "https://hadleylab.org/blogs/coin-is-work/", "status": 404}
+,
+  {"url": "https://hadleylab.org/blogs/magic-galaxy/", "status": 404}
+,
+  {"url": "https://hadleylab.org/blogs/the-compiler-insight/", "status": 404}
+,
+  {"url": "https://hadleylab.org/blogs/what-is-magic/", "status": 404}
+,
+  {"url": "https://hadleylab.org/blogs/your-first-255/", "status": 404}
+,
+  {"url": "https://hbr.org/2014/10/a-new-deal-on-data", "status": 404}
+,
+  {"url": "https://hipaajournal.com", "status": 403}
+,
+  {"url": "https://ihi.europa.eu", "status": 000000}
+,
+  {"url": "https://measuredcollective.com;", "status": 000000}
+,
+  {"url": "https://scholar.google.com/citations?user=2o8ORCAAAAAJ", "status": 403}
+,
+  {"url": "https://www.congress.gov/bill/111th-congress/house-bill/946", "status": 403}
+,
+  {"url": "https://www.congress.gov/bill/114th-congress/house-bill/34", "status": 403}
+,
+  {"url": "https://www.hhs.gov/hipaa/for-professionals/privacy/index.html", "status": 403}
+,
+  {"url": "https://www.hhs.gov/hipaa/for-professionals/security/index.html", "status": 403}
+,
+  {"url": "https://www.hhs.gov/ohrp/regulations-and-policy/regulations/45-cfr-46/index.html", "status": 403}
+,
+  {"url": "https://www.oecd.org/en/topics/health.html", "status": 403}
+], "total_checked": 171, "broken_count": 21, "alert_count": 21}

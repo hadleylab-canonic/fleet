@@ -1,0 +1,35 @@
+{"_generated": true, "task": "LINKS", "timestamp": "2026-04-03T01:24:59Z", "broken": [
+  {"url": "https://cancertt.com", "status": 406}
+,
+  {"url": "https://doi.org/10.1016/S2214-109X(22", "status": 404}
+,
+  {"url": "https://fortune.com/2026/03/26/anthropic-says-testing-mythos-powerful-new-ai-model-after-data-leak-reveals-its-existence-step-change-in-capabilities/", "status": 403}
+,
+  {"url": "https://hadleylab.org/BLOGS/`", "status": 404}
+,
+  {"url": "https://hadleylab.org/services/talk/", "status": 404}
+,
+  {"url": "https://jamanetwork.com/journals/jamanetworkopen", "status": 403}
+,
+  {"url": "https://kotrotsos.medium.com/anthropic-hackathon-results-b13f8466296e", "status": 403}
+,
+  {"url": "https://linkedin.com/in/dr-marisa-nimrod", "status": 999}
+,
+  {"url": "https://scholar.google.com/citations?user=2o8ORCAAAAAJ", "status": 403}
+,
+  {"url": "https://time.com/6253615/chatgpt-fastest-growing/", "status": 406}
+,
+  {"url": "https://www.hhs.gov/ohrp/international/compilation-human-research-standards/index.html", "status": 403}
+,
+  {"url": "https://www.hhs.gov/ohrp/regulations-and-policy/regulations/45-cfr-46/index.html", "status": 403}
+,
+  {"url": "https://www.hipaajournal.com/hipaa-updates-hipaa-changes/", "status": 403}
+,
+  {"url": "https://www.hipaajournal.com/when-ai-technology-and-hipaa-collide/", "status": 403}
+,
+  {"url": "https://www.linkedin.com/in/dr-marisa-nimrod/", "status": 999}
+,
+  {"url": "https://www.paho.org/en/caribbean", "status": 404}
+,
+  {"url": "https://www.researchgate.net/publication/337740189_Caribbean_Network_of_Research_Ethics_Committees_CANREC_Bulletin", "status": 403}
+], "total_checked": 100, "broken_count": 17, "alert_count": 17}
