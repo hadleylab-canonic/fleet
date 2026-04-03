@@ -107,28 +107,45 @@ function renderHN(data) {
 
 function renderGrants(data) {
   if (!data) return '';
-  const dl = (data.deadlines || []).filter(d => d.days_left <= 30);
-  if (dl.length === 0) return '<div class="detail">No urgent deadlines</div>';
-  return dl.map(d =>
-    `<div class="detail" style="color:${d.urgency === 'CRITICAL' ? 'var(--red)' : d.urgency === 'URGENT' ? 'var(--yellow)' : 'var(--text)'}"><strong>${d.date}</strong> · ${d.urgency} (${d.days_left}d)</div>`
-  ).join('');
+  const dl = (data.deadlines || []).filter(d => d.days_left >= -7 && d.days_left <= 90);
+  if (dl.length === 0) return '<div class="detail">No upcoming deadlines</div>';
+  return dl.slice(0, 5).map(d => {
+    const color = d.urgency === 'CRITICAL' ? 'var(--red)' : d.urgency === 'URGENT' ? 'var(--yellow)' : 'var(--dim)';
+    const name = d.name || d.date;
+    return `<div class="detail" style="color:${color}"><strong>${d.days_left}d</strong> · ${name.slice(0, 50)}</div>`;
+  }).join('');
 }
 
 function renderLinks(data) {
   if (!data) return '';
-  return `<div class="detail"><strong>${data.total_checked || 0}</strong> checked · <strong style="color:${(data.broken_count || 0) > 0 ? 'var(--red)' : 'var(--green)'}">${data.broken_count || 0} broken</strong></div>`;
+  let html = `<div class="detail"><strong>${data.healthy || 0}</strong>/${data.total_checked || 0} healthy · <strong style="color:${(data.broken_count || 0) > 0 ? 'var(--red)' : 'var(--green)'}">${data.broken_count || 0} broken</strong></div>`;
+  if (data.broken && data.broken.length > 0) {
+    html += data.broken.slice(0, 3).map(b =>
+      `<div class="detail" style="color:var(--red)">· ${b.status} ${(b.source || '').slice(0, 20)} → ${(b.url || '').slice(0, 40)}</div>`
+    ).join('');
+    if (data.broken.length > 3) html += `<div class="detail" style="color:var(--dim)">+ ${data.broken.length - 3} more</div>`;
+  }
+  return html;
 }
 
 function renderSEO(data) {
   if (!data || !data.results) return '';
-  return data.results.map(r =>
-    `<div class="detail"><strong>${r.domain}</strong>: sitemap ${r.sitemap_urls || '?'} URLs · OG ${r.og_title ? 'OK' : 'missing'}</div>`
-  ).join('');
+  return data.results.map(r => {
+    const issues = r.issues && r.issues !== 'none' ? ` · <span style="color:var(--red)">${r.issues}</span>` : '';
+    return `<div class="detail"><strong>${r.domain}</strong>: ${r.sitemap_urls || 0} URLs${issues}</div>`;
+  }).join('');
 }
 
 function renderCitations(data) {
   if (!data) return '';
-  return `<div class="detail"><strong>${data.total_checked || 0}</strong> checked · <strong style="color:${(data.broken_count || 0) > 0 ? 'var(--red)' : 'var(--green)'}">${data.broken_count || 0} broken</strong></div>`;
+  let html = `<div class="detail"><strong>${data.healthy || 0}</strong>/${data.total_checked || 0} healthy · <strong style="color:${(data.broken_count || 0) > 0 ? 'var(--red)' : 'var(--green)'}">${data.broken_count || 0} broken</strong></div>`;
+  if (data.broken && data.broken.length > 0) {
+    html += data.broken.slice(0, 3).map(b =>
+      `<div class="detail" style="color:var(--red)">· [${b.ref || '?'}] ${(b.name || b.url || '').slice(0, 45)}</div>`
+    ).join('');
+    if (data.broken.length > 3) html += `<div class="detail" style="color:var(--dim)">+ ${data.broken.length - 3} more</div>`;
+  }
+  return html;
 }
 
 function renderCampaign(data) {
