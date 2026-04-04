@@ -1,0 +1,40 @@
+{
+  "_generated": true,
+  "task": "SEO",
+  "timestamp": "2026-04-04T20:45:02Z",
+  "results": [
+    {
+      "domain": "hadleylab.org",
+      "robots": 200,
+      "sitemap": 200,
+      "sitemap_urls": 520,
+      "og_title": 1,
+      "issues": "none"
+    },
+    {
+      "domain": "canonic.org",
+      "robots": 200,
+      "sitemap": 200,
+      "sitemap_urls": 227,
+      "og_title": 1,
+      "issues": "none"
+    },
+    {
+      "domain": "mammochat.com",
+      "robots": 404,
+      "sitemap": 404,
+      "sitemap_urls": 0,
+      "og_title": 1,
+      "issues": "robots.txt missing, sitemap.xml missing"
+    },
+    {
+      "domain": "caribchat.ai",
+      "robots": 404,
+      "sitemap": 404,
+      "sitemap_urls": 0,
+      "og_title": 1,
+      "issues": "robots.txt missing, sitemap.xml missing"
+    }
+  ],
+  "alert_count": 4
+}
