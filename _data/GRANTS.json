@@ -1,39 +1,32 @@
 {
   "_generated": true,
   "task": "GRANTS",
-  "timestamp": "2026-04-04T18:57:22Z",
+  "timestamp": "2026-04-05T15:41:51Z",
   "deadlines": [
     {
-      "date": "2026-03-28",
-      "days_left": -7,
-      "urgency": "CRITICAL",
-      "name": "Strong Her Women Empowerment Brunch III",
-      "source": "CAMPAIGNS/STRONG-HER-2026.md"
-    },
-    {
       "date": "2026-03-30",
-      "days_left": -5,
+      "days_left": -6,
       "urgency": "CRITICAL",
       "name": "Blog launch — \"Stop Prompting, Start Governing\"",
       "source": "CAMPAIGNS/STOP-PROMPTING-2026.md"
     },
     {
       "date": "2026-04-08",
-      "days_left": 3,
+      "days_left": 2,
       "urgency": "URGENT",
       "name": "Health AI Summit",
       "source": "CAMPAIGNS/HEALTH-AI-SUMMIT-2026.md"
     },
     {
       "date": "2026-04-30",
-      "days_left": 25,
+      "days_left": 24,
       "urgency": "NOTICE",
       "name": "Bamberg Health / Florida Healthcare Innovation Summit",
       "source": "CAMPAIGNS/BAMBERG-2026.md"
     },
     {
       "date": "2026-05-21",
-      "days_left": 46,
+      "days_left": 45,
       "urgency": "INFO",
       "name": "AI in Healthcare — Orlando (MI10)",
       "source": "CAMPAIGNS/MI10-ORLANDO-2026.md"
