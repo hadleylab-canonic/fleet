@@ -1,13 +1,13 @@
 {
   "_generated": true,
   "task": "SEO",
-  "timestamp": "2026-04-07T11:09:38Z",
+  "timestamp": "2026-04-08T07:49:18Z",
   "results": [
     {
       "domain": "hadleylab.org",
       "robots": 200,
       "sitemap": 200,
-      "sitemap_urls": 484,
+      "sitemap_urls": 275,
       "og_title": 1,
       "issues": "none"
     },
@@ -15,7 +15,7 @@
       "domain": "canonic.org",
       "robots": 200,
       "sitemap": 200,
-      "sitemap_urls": 227,
+      "sitemap_urls": 299,
       "og_title": 1,
       "issues": "none"
     },
