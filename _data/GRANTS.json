@@ -1,29 +1,29 @@
 {
   "_generated": true,
   "task": "GRANTS",
-  "timestamp": "2026-04-08T05:52:37Z",
+  "timestamp": "2026-04-09T03:21:01Z",
   "deadlines": [
     {
       "date": "2026-04-08",
-      "days_left": 0,
+      "days_left": -1,
       "urgency": "CRITICAL",
       "name": "Health AI Summit",
       "source": "CAMPAIGNS/HEALTH-AI-SUMMIT-2026.md"
     },
     {
       "date": "2026-04-30",
-      "days_left": 21,
+      "days_left": 20,
       "urgency": "NOTICE",
       "name": "Bamberg Health / Florida Healthcare Innovation Summit",
       "source": "CAMPAIGNS/BAMBERG-2026.md"
     },
     {
       "date": "2026-05-21",
-      "days_left": 42,
+      "days_left": 41,
       "urgency": "INFO",
       "name": "AI in Healthcare — Orlando (MI10)",
       "source": "CAMPAIGNS/MI10-ORLANDO-2026.md"
     }
   ],
-  "alert_count": 1
+  "alert_count": 0
 }

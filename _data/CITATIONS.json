@@ -1,43 +1,149 @@
-{"_generated": true, "task": "CITATIONS", "timestamp": "2026-04-03T01:27:17Z", "broken": [
-  {"url": "https://cms-lawnow.com", "status": 403}
-,
-  {"url": "https://deputyprimeminister.gov.mt/en/dhir/", "status": 530}
-,
-  {"url": "https://dlapiper.com", "status": 429}
-,
-  {"url": "https://doi.org/10.1016/S2214-109X(22", "status": 404}
-,
-  {"url": "https://grantome.com/grant/NIH/U19-AR076737-01", "status": 000000}
-,
-  {"url": "https://hadleylab.org/blogs/coin-is-work/", "status": 404}
-,
-  {"url": "https://hadleylab.org/blogs/magic-galaxy/", "status": 404}
-,
-  {"url": "https://hadleylab.org/blogs/the-compiler-insight/", "status": 404}
-,
-  {"url": "https://hadleylab.org/blogs/what-is-magic/", "status": 404}
-,
-  {"url": "https://hadleylab.org/blogs/your-first-255/", "status": 404}
-,
-  {"url": "https://hbr.org/2014/10/a-new-deal-on-data", "status": 404}
-,
-  {"url": "https://hipaajournal.com", "status": 403}
-,
-  {"url": "https://ihi.europa.eu", "status": 000000}
-,
-  {"url": "https://measuredcollective.com;", "status": 000000}
-,
-  {"url": "https://scholar.google.com/citations?user=2o8ORCAAAAAJ", "status": 403}
-,
-  {"url": "https://www.congress.gov/bill/111th-congress/house-bill/946", "status": 403}
-,
-  {"url": "https://www.congress.gov/bill/114th-congress/house-bill/34", "status": 403}
-,
-  {"url": "https://www.hhs.gov/hipaa/for-professionals/privacy/index.html", "status": 403}
-,
-  {"url": "https://www.hhs.gov/hipaa/for-professionals/security/index.html", "status": 403}
-,
-  {"url": "https://www.hhs.gov/ohrp/regulations-and-policy/regulations/45-cfr-46/index.html", "status": 403}
-,
-  {"url": "https://www.oecd.org/en/topics/health.html", "status": 403}
-], "total_checked": 171, "broken_count": 21, "alert_count": 21}
+{
+  "_generated": true,
+  "task": "CITATIONS",
+  "timestamp": "2026-04-09T03:23:17Z",
+  "total_checked": 199,
+  "healthy": 176,
+  "broken_count": 23,
+  "alert_count": 23,
+  "broken": [
+    {
+      "url": "https://doi.org/10.1016/0040-5809(72",
+      "status": 404,
+      "ref": "X-4",
+      "name": "Ewens, W.J. *The Sampling Theory of Selectively Neutral Alle"
+    },
+    {
+      "url": "https://hipaajournal.com",
+      "status": 403,
+      "ref": "X-12",
+      "name": "HIPAA Journal Healthcare Data Breach Statistics"
+    },
+    {
+      "url": "https://www.oecd.org/en/topics/health.html",
+      "status": 403,
+      "ref": "X-49",
+      "name": "OECD *Tackling Wasteful Spending on Health* (2017)"
+    },
+    {
+      "url": "https://cms-lawnow.com",
+      "status": 403,
+      "ref": "X-54",
+      "name": "ICO Advanced Computer Software Group enforcement (Mar 2025)"
+    },
+    {
+      "url": "https://measuredcollective.com;",
+      "status": 0,
+      "ref": "X-55",
+      "name": "ICO enforcement trends 2025"
+    },
+    {
+      "url": "https://ihi.europa.eu",
+      "status": 0,
+      "ref": "X-59",
+      "name": "IHI Innovative Health Initiative Call 12"
+    },
+    {
+      "url": "https://dlapiper.com",
+      "status": 429,
+      "ref": "X-60",
+      "name": "DLA Piper GDPR Fines Survey January 2025"
+    },
+    {
+      "url": "https://deputyprimeminister.gov.mt/en/dhir/",
+      "status": 530,
+      "ref": "X-81",
+      "name": "Malta National Cancer Registry — breast cancer incidence"
+    },
+    {
+      "url": "https://doi.org/10.1016/S2214-109X(22",
+      "status": 404,
+      "ref": "X-86",
+      "name": "Aguilera B, Carracedo S, Saenz C. Research ethics governance"
+    },
+    {
+      "url": "https://www.hhs.gov/ohrp/regulations-and-policy/regulations/45-cfr-46/index.html",
+      "status": 403,
+      "ref": "X-95",
+      "name": "HHS OHRP — 45 CFR 46 (Protection of Human Subjects), exemp"
+    },
+    {
+      "url": "https://www.hhs.gov/hipaa/for-professionals/privacy/index.html",
+      "status": 403,
+      "ref": "X-96",
+      "name": "HIPAA Privacy Rule — 45 CFR Parts 160, 164 (1996)"
+    },
+    {
+      "url": "https://www.hhs.gov/hipaa/for-professionals/security/index.html",
+      "status": 403,
+      "ref": "X-97",
+      "name": "HIPAA Security Rule — 45 CFR 164 Subpart C (2003)"
+    },
+    {
+      "url": "https://www.congress.gov/bill/114th-congress/house-bill/34",
+      "status": 403,
+      "ref": "X-98",
+      "name": "21st Century Cures Act (2016) — Public Law 114-255"
+    },
+    {
+      "url": "https://doi.org/10.1001/jama.2021.18814",
+      "status": 404,
+      "ref": "X-101",
+      "name": "Adler-Milstein, J., Holmgren, A.J. Electronic Health Record "
+    },
+    {
+      "url": "https://doi.org/10.1136/bmjqs-2019-010286",
+      "status": 404,
+      "ref": "X-120",
+      "name": "Robinson, L., et al. Measuring Fragmentation of Care. *BMJ Q"
+    },
+    {
+      "url": "https://www.congress.gov/bill/111th-congress/house-bill/946",
+      "status": 403,
+      "ref": "X-132",
+      "name": "U.S. Congress. Plain Writing Act of 2010 / Federal Plain Lan"
+    },
+    {
+      "url": "https://hadleylab.org/papers/code-evolution-theory/",
+      "status": 404,
+      "ref": "W-1",
+      "name": "Code Evolution Theory"
+    },
+    {
+      "url": "https://hadleylab.org/papers/neutral-theory/",
+      "status": 404,
+      "ref": "W-2",
+      "name": "The Neutral Theory of CANONIC Evolution"
+    },
+    {
+      "url": "https://hadleylab.org/papers/evolutionary-phylogenetics/",
+      "status": 404,
+      "ref": "W-3",
+      "name": "Evolutionary Phylogenetics of CANONIC"
+    },
+    {
+      "url": "https://hadleylab.org/papers/canonic-whitepaper/",
+      "status": 404,
+      "ref": "W-5",
+      "name": "CANONIC Whitepaper v1"
+    },
+    {
+      "url": "https://hadleylab.org/papers/governance-as-compilation/",
+      "status": 404,
+      "ref": "W-7",
+      "name": "Governance as Compilation"
+    },
+    {
+      "url": "https://hadleylab.org/papers/economics-of-governed-work/",
+      "status": 404,
+      "ref": "W-8",
+      "name": "Economics of Governed Work"
+    },
+    {
+      "url": "https://hadleylab.org/papers/content-as-proof-of-work/",
+      "status": 404,
+      "ref": "W-9",
+      "name": "Content as Proof of Work"
+    }
+  ]
+}
