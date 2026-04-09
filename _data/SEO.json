@@ -1,13 +1,13 @@
 {
   "_generated": true,
   "task": "SEO",
-  "timestamp": "2026-04-08T07:49:18Z",
+  "timestamp": "2026-04-09T05:54:23Z",
   "results": [
     {
       "domain": "hadleylab.org",
       "robots": 200,
       "sitemap": 200,
-      "sitemap_urls": 275,
+      "sitemap_urls": 295,
       "og_title": 1,
       "issues": "none"
     },
