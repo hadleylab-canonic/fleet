@@ -1,17 +1,23 @@
 {
   "_generated": true,
   "task": "CITATIONS",
-  "timestamp": "2026-04-09T03:23:17Z",
-  "total_checked": 199,
-  "healthy": 176,
-  "broken_count": 23,
-  "alert_count": 23,
+  "timestamp": "2026-04-15T03:33:46Z",
+  "total_checked": 200,
+  "healthy": 186,
+  "broken_count": 14,
+  "alert_count": 14,
   "broken": [
     {
       "url": "https://doi.org/10.1016/0040-5809(72",
       "status": 404,
       "ref": "X-4",
       "name": "Ewens, W.J. *The Sampling Theory of Selectively Neutral Alle"
+    },
+    {
+      "url": "https://www.justice.gov/d9/2025-10/fca_stats.pdf",
+      "status": 404,
+      "ref": "X-8",
+      "name": "DOJ False Claims Act Statistics"
     },
     {
       "url": "https://hipaajournal.com",
@@ -30,12 +36,6 @@
       "status": 403,
       "ref": "X-54",
       "name": "ICO Advanced Computer Software Group enforcement (Mar 2025)"
-    },
-    {
-      "url": "https://measuredcollective.com;",
-      "status": 0,
-      "ref": "X-55",
-      "name": "ICO enforcement trends 2025"
     },
     {
       "url": "https://ihi.europa.eu",
@@ -86,64 +86,10 @@
       "name": "21st Century Cures Act (2016) — Public Law 114-255"
     },
     {
-      "url": "https://doi.org/10.1001/jama.2021.18814",
-      "status": 404,
-      "ref": "X-101",
-      "name": "Adler-Milstein, J., Holmgren, A.J. Electronic Health Record "
-    },
-    {
-      "url": "https://doi.org/10.1136/bmjqs-2019-010286",
-      "status": 404,
-      "ref": "X-120",
-      "name": "Robinson, L., et al. Measuring Fragmentation of Care. *BMJ Q"
-    },
-    {
       "url": "https://www.congress.gov/bill/111th-congress/house-bill/946",
       "status": 403,
       "ref": "X-132",
       "name": "U.S. Congress. Plain Writing Act of 2010 / Federal Plain Lan"
-    },
-    {
-      "url": "https://hadleylab.org/papers/code-evolution-theory/",
-      "status": 404,
-      "ref": "W-1",
-      "name": "Code Evolution Theory"
-    },
-    {
-      "url": "https://hadleylab.org/papers/neutral-theory/",
-      "status": 404,
-      "ref": "W-2",
-      "name": "The Neutral Theory of CANONIC Evolution"
-    },
-    {
-      "url": "https://hadleylab.org/papers/evolutionary-phylogenetics/",
-      "status": 404,
-      "ref": "W-3",
-      "name": "Evolutionary Phylogenetics of CANONIC"
-    },
-    {
-      "url": "https://hadleylab.org/papers/canonic-whitepaper/",
-      "status": 404,
-      "ref": "W-5",
-      "name": "CANONIC Whitepaper v1"
-    },
-    {
-      "url": "https://hadleylab.org/papers/governance-as-compilation/",
-      "status": 404,
-      "ref": "W-7",
-      "name": "Governance as Compilation"
-    },
-    {
-      "url": "https://hadleylab.org/papers/economics-of-governed-work/",
-      "status": 404,
-      "ref": "W-8",
-      "name": "Economics of Governed Work"
-    },
-    {
-      "url": "https://hadleylab.org/papers/content-as-proof-of-work/",
-      "status": 404,
-      "ref": "W-9",
-      "name": "Content as Proof of Work"
     }
   ]
 }
