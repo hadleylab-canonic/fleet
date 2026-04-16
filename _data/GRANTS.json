@@ -1,32 +1,25 @@
 {
   "_generated": true,
   "task": "GRANTS",
-  "timestamp": "2026-04-15T06:06:43Z",
+  "timestamp": "2026-04-16T03:40:17Z",
   "deadlines": [
     {
-      "date": "2026-04-08",
-      "days_left": -7,
-      "urgency": "CRITICAL",
-      "name": "Blog launch — The Fixed Point (Easter belated)",
-      "source": "CAMPAIGNS/THE-FIXED-POINT-2026.md"
-    },
-    {
       "date": "2026-04-09",
-      "days_left": -6,
+      "days_left": -7,
       "urgency": "CRITICAL",
       "name": "Blog launch — What Karpathy Got Right (And What He's Missing)",
       "source": "CAMPAIGNS/KARPATHY-KNOWLEDGE-GRAPH-2026.md"
     },
     {
       "date": "2026-04-30",
-      "days_left": 14,
+      "days_left": 13,
       "urgency": "WARNING",
       "name": "Bamberg Health / Florida Healthcare Innovation Summit",
       "source": "CAMPAIGNS/BAMBERG-2026.md"
     },
     {
       "date": "2026-05-21",
-      "days_left": 35,
+      "days_left": 34,
       "urgency": "INFO",
       "name": "AI in Healthcare — Orlando (MI10)",
       "source": "CAMPAIGNS/MI10-ORLANDO-2026.md"
