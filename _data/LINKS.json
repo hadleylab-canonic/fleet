@@ -1,11 +1,11 @@
 {
   "_generated": true,
   "task": "LINKS",
-  "timestamp": "2026-04-16T23:53:13Z",
+  "timestamp": "2026-04-17T20:58:13Z",
   "total_checked": 105,
-  "healthy": 92,
-  "broken_count": 13,
-  "alert_count": 13,
+  "healthy": 91,
+  "broken_count": 14,
+  "alert_count": 14,
   "broken": [
     {
       "url": "https://mammochat.com",
@@ -21,6 +21,11 @@
       "url": "https://cancertt.com",
       "status": 406,
       "source": "2026-02-25-where-you-live"
+    },
+    {
+      "url": "https://fi.co",
+      "status": 0,
+      "source": "2026-03-08-the-diagnostic"
     },
     {
       "url": "https://time.com/6253615/chatgpt-fastest-growing/",
