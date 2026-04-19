@@ -1,13 +1,13 @@
-{"_generated": true, "task": "UPTIME", "timestamp": "2026-04-19T03:44:24Z", "results": [
-  {"domain": "hadleylab.org", "status": 200, "time_ms": 544, "ssl_expiry": "Jul 12 12:01:08 2026 GMT", "ssl_days_left": 84}
+{"_generated": true, "task": "UPTIME", "timestamp": "2026-04-19T06:05:12Z", "results": [
+  {"domain": "hadleylab.org", "status": 200, "time_ms": 96, "ssl_expiry": "Jul 12 12:01:08 2026 GMT", "ssl_days_left": 84}
 ,
-  {"domain": "canonic.org", "status": 200, "time_ms": 280, "ssl_expiry": "Jul 12 13:55:29 2026 GMT", "ssl_days_left": 84}
+  {"domain": "canonic.org", "status": 200, "time_ms": 211, "ssl_expiry": "Jul 12 13:55:29 2026 GMT", "ssl_days_left": 84}
 ,
-  {"domain": "mammochat.com", "status": 403, "time_ms": 59, "ssl_expiry": "Jul 10 02:10:14 2026 GMT", "ssl_days_left": 81}
+  {"domain": "mammochat.com", "status": 403, "time_ms": 40, "ssl_expiry": "Jul 10 02:10:14 2026 GMT", "ssl_days_left": 81}
 ,
-  {"domain": "caribchat.ai", "status": 200, "time_ms": 865, "ssl_expiry": "Jul 14 02:32:42 2026 GMT", "ssl_days_left": 85}
+  {"domain": "caribchat.ai", "status": 200, "time_ms": 124, "ssl_expiry": "Jul 14 02:32:42 2026 GMT", "ssl_days_left": 85}
 ,
-  {"domain": "app.mammochat.ai", "status": 200, "time_ms": 1318, "ssl_expiry": "Jul 14 01:32:26 2026 GMT", "ssl_days_left": 85}
+  {"domain": "app.mammochat.ai", "status": 200, "time_ms": 585, "ssl_expiry": "Jul 14 01:32:26 2026 GMT", "ssl_days_left": 85}
 ,
-  {"domain": "app.caribchat.ai", "status": 200, "time_ms": 348, "ssl_expiry": "Jul 14 01:31:41 2026 GMT", "ssl_days_left": 85}
+  {"domain": "app.caribchat.ai", "status": 200, "time_ms": 309, "ssl_expiry": "Jul 14 01:31:41 2026 GMT", "ssl_days_left": 85}
 ], "alert_count": 1}
