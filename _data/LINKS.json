@@ -1,11 +1,11 @@
 {
   "_generated": true,
   "task": "LINKS",
-  "timestamp": "2026-04-19T14:52:42Z",
+  "timestamp": "2026-04-20T11:26:54Z",
   "total_checked": 105,
-  "healthy": 90,
-  "broken_count": 15,
-  "alert_count": 15,
+  "healthy": 92,
+  "broken_count": 13,
+  "alert_count": 13,
   "broken": [
     {
       "url": "https://mammochat.com",
@@ -23,11 +23,6 @@
       "source": "2026-02-25-where-you-live"
     },
     {
-      "url": "https://health.gov.tt",
-      "status": 0,
-      "source": "2026-02-25-where-you-live"
-    },
-    {
       "url": "https://time.com/6253615/chatgpt-fastest-growing/",
       "status": 406,
       "source": "2026-03-15-alphago-at-10"
@@ -40,11 +35,6 @@
     {
       "url": "https://carib.chat",
       "status": 403,
-      "source": "2026-03-15-caribchat-at-caoh"
-    },
-    {
-      "url": "https://health.gov.tt",
-      "status": 0,
       "source": "2026-03-15-caribchat-at-caoh"
     },
     {
