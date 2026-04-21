@@ -1,11 +1,11 @@
 {
   "_generated": true,
   "task": "CITATIONS",
-  "timestamp": "2026-04-15T03:33:46Z",
+  "timestamp": "2026-04-21T03:37:52Z",
   "total_checked": 200,
-  "healthy": 186,
-  "broken_count": 14,
-  "alert_count": 14,
+  "healthy": 185,
+  "broken_count": 15,
+  "alert_count": 15,
   "broken": [
     {
       "url": "https://doi.org/10.1016/0040-5809(72",
@@ -84,6 +84,12 @@
       "status": 403,
       "ref": "X-98",
       "name": "21st Century Cures Act (2016) — Public Law 114-255"
+    },
+    {
+      "url": "https://csrc.nist.gov/pubs/fips/140-3/final",
+      "status": 404,
+      "ref": "X-112",
+      "name": "NIST FIPS 140-3: Security Requirements for Cryptographic Mod"
     },
     {
       "url": "https://www.congress.gov/bill/111th-congress/house-bill/946",
