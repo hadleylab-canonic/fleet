@@ -1,17 +1,12 @@
 {
   "_generated": true,
   "task": "LINKS",
-  "timestamp": "2026-04-21T08:58:19Z",
+  "timestamp": "2026-04-22T06:07:22Z",
   "total_checked": 105,
-  "healthy": 92,
-  "broken_count": 13,
-  "alert_count": 13,
+  "healthy": 96,
+  "broken_count": 9,
+  "alert_count": 9,
   "broken": [
-    {
-      "url": "https://mammochat.com",
-      "status": 403,
-      "source": "2026-01-31-mammochat-to-magic"
-    },
     {
       "url": "https://scholar.google.com/citations?user=2o8ORCAAAAAJ",
       "status": 403,
@@ -31,21 +26,6 @@
       "url": "https://cancertt.com",
       "status": 406,
       "source": "2026-03-15-caribchat-at-caoh"
-    },
-    {
-      "url": "https://carib.chat",
-      "status": 403,
-      "source": "2026-03-15-caribchat-at-caoh"
-    },
-    {
-      "url": "https://mammochat.com",
-      "status": 403,
-      "source": "2026-03-15-caribchat-at-caoh"
-    },
-    {
-      "url": "https://carib.chat",
-      "status": 403,
-      "source": "2026-03-18-irb-without-a-law"
     },
     {
       "url": "https://doi.org/10.1016/S2214-109X(22",
