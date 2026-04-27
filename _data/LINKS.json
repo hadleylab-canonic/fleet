@@ -1,17 +1,12 @@
 {
   "_generated": true,
   "task": "LINKS",
-  "timestamp": "2026-04-26T13:25:56Z",
+  "timestamp": "2026-04-27T09:27:15Z",
   "total_checked": 105,
-  "healthy": 94,
-  "broken_count": 11,
-  "alert_count": 11,
+  "healthy": 95,
+  "broken_count": 10,
+  "alert_count": 10,
   "broken": [
-    {
-      "url": "https://scholar.google.com/citations?user=2o8ORCAAAAAJ",
-      "status": 403,
-      "source": "2026-01-31-mammochat-to-magic"
-    },
     {
       "url": "https://cancertt.com",
       "status": 406,
