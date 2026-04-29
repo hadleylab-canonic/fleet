@@ -1,11 +1,11 @@
 {
   "_generated": true,
   "task": "LINKS",
-  "timestamp": "2026-04-28T06:38:31Z",
-  "total_checked": 105,
-  "healthy": 96,
-  "broken_count": 9,
-  "alert_count": 9,
+  "timestamp": "2026-04-29T03:55:28Z",
+  "total_checked": 109,
+  "healthy": 89,
+  "broken_count": 20,
+  "alert_count": 20,
   "broken": [
     {
       "url": "https://scholar.google.com/citations?user=2o8ORCAAAAAJ",
@@ -13,44 +13,99 @@
       "source": "2026-01-31-mammochat-to-magic"
     },
     {
-      "url": "https://cancertt.com",
-      "status": 406,
-      "source": "2026-02-25-where-you-live"
-    },
-    {
       "url": "https://time.com/6253615/chatgpt-fastest-growing/",
       "status": 406,
       "source": "2026-03-15-alphago-at-10"
     },
     {
-      "url": "https://cancertt.com",
-      "status": 406,
-      "source": "2026-03-15-caribchat-at-caoh"
-    },
-    {
-      "url": "https://doi.org/10.1016/S2214-109X(22",
-      "status": 404,
-      "source": "2026-03-18-irb-without-a-law"
-    },
-    {
-      "url": "https://www.hhs.gov/ohrp/international/compilation-human-research-standards/index.html",
-      "status": 403,
-      "source": "2026-03-18-irb-without-a-law"
-    },
-    {
-      "url": "https://www.hhs.gov/ohrp/regulations-and-policy/regulations/45-cfr-46/index.html",
-      "status": 403,
-      "source": "2026-03-18-irb-without-a-law"
-    },
-    {
-      "url": "https://www.researchgate.net/publication/337740189_Caribbean_Network_of_Research_Ethics_Committees_CANREC_Bulletin",
-      "status": 403,
-      "source": "2026-03-18-irb-without-a-law"
-    },
-    {
       "url": "https://kotrotsos.medium.com/anthropic-hackathon-results-b13f8466296e",
       "status": 403,
       "source": "2026-03-22-the-lawyer-who-won"
+    },
+    {
+      "url": "https://fortune.com/2026/03/26/anthropic-says-testing-mythos-powerful-new-ai-model-after-data-leak-reveals-its-existence-step-change-in-capabilities/",
+      "status": 403,
+      "source": "2026-03-30-stop-prompting-start-governing"
+    },
+    {
+      "url": "https://www.hipaajournal.com/hipaa-updates-hipaa-changes/",
+      "status": 403,
+      "source": "2026-03-30-stop-prompting-start-governing"
+    },
+    {
+      "url": "https://www.hipaajournal.com/when-ai-technology-and-hipaa-collide/",
+      "status": 403,
+      "source": "2026-03-30-stop-prompting-start-governing"
+    },
+    {
+      "url": "https://www.washingtonpost.com/technology/2026/03/26/pentagon-anthropic-national-security-risk-order-blocked/",
+      "status": 0,
+      "source": "2026-03-30-stop-prompting-start-governing"
+    },
+    {
+      "url": "https://fortune.com/2026/03/26/anthropic-says-testing-mythos-powerful-new-ai-model-after-data-leak-reveals-its-existence-step-change-in-capabilities/",
+      "status": 403,
+      "source": "2026-04-16-nobody-talks-about-the-hammer"
+    },
+    {
+      "url": "https://graceblakeley.substack.com/p/the-ai-circular-economy",
+      "status": 403,
+      "source": "2026-04-16-nobody-talks-about-the-hammer"
+    },
+    {
+      "url": "https://hadleylab.org/blogs/2026-04-11-what-if-your-ai-had-to-pass-boards",
+      "status": 404,
+      "source": "2026-04-16-nobody-talks-about-the-hammer"
+    },
+    {
+      "url": "https://founderof.ai`",
+      "status": 0,
+      "source": "2026-04-22-ghost-worker"
+    },
+    {
+      "url": "https://singu.ar`",
+      "status": 0,
+      "source": "2026-04-22-ghost-worker"
+    },
+    {
+      "url": "https://singu.ar`,",
+      "status": 0,
+      "source": "2026-04-22-ghost-worker"
+    },
+    {
+      "url": "https://www.singu.ar`",
+      "status": 0,
+      "source": "2026-04-22-ghost-worker"
+    },
+    {
+      "url": "https://www.britannica.com/biography/Luca-Pacioli",
+      "status": 403,
+      "source": "2026-04-23-closing-the-books"
+    },
+    {
+      "url": "https://ieeexplore.ieee.org/document/1646911",
+      "status": 418,
+      "source": "2026-04-24-testing-is-dead"
+    },
+    {
+      "url": "https://openai.com",
+      "status": 403,
+      "source": "2026-04-24-testing-is-dead"
+    },
+    {
+      "url": "https://www.britannica.com/biography/Luca-Pacioli",
+      "status": 403,
+      "source": "2026-04-24-testing-is-dead"
+    },
+    {
+      "url": "https://www.sec.gov/about/laws/soa2002.pdf",
+      "status": 403,
+      "source": "2026-04-24-testing-is-dead"
+    },
+    {
+      "url": "https://www.britannica.com/biography/Luca-Pacioli",
+      "status": 403,
+      "source": "2026-04-27-three-eight-five"
     }
   ]
 }
