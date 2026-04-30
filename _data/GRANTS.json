@@ -1,15 +1,8 @@
 {
   "_generated": true,
   "task": "GRANTS",
-  "timestamp": "2026-04-29T03:55:27Z",
+  "timestamp": "2026-04-30T00:03:14Z",
   "deadlines": [
-    {
-      "date": "2026-04-22",
-      "days_left": -7,
-      "urgency": "CRITICAL",
-      "name": "Blog launch — \"Nobody Talks About the Hammer\" (hardware lobby vs. governed tools)",
-      "source": "CAMPAIGNS/NOBODY-TALKS-ABOUT-THE-HAMMER.md"
-    },
     {
       "date": "2026-04-30",
       "days_left": 0,
@@ -19,14 +12,14 @@
     },
     {
       "date": "2026-05-21",
-      "days_left": 21,
+      "days_left": 20,
       "urgency": "NOTICE",
       "name": "AI in Healthcare — Orlando (MI10)",
       "source": "CAMPAIGNS/MI10-ORLANDO-2026.md"
     },
     {
       "date": "2026-07-17",
-      "days_left": 78,
+      "days_left": 77,
       "urgency": "INFO",
       "name": "CAOH 2026 Annual Scientific Conference — CaribChat Launch",
       "source": "CAMPAIGNS/CAOH-2026.md"
