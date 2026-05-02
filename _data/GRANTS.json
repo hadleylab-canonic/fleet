@@ -1,25 +1,25 @@
 {
   "_generated": true,
   "task": "GRANTS",
-  "timestamp": "2026-05-01T17:10:11Z",
+  "timestamp": "2026-05-02T13:40:48Z",
   "deadlines": [
     {
       "date": "2026-04-30",
-      "days_left": -1,
+      "days_left": -2,
       "urgency": "CRITICAL",
       "name": "Bamberg Health / Florida Healthcare Innovation Summit",
       "source": "CAMPAIGNS/BAMBERG-2026.md"
     },
     {
       "date": "2026-05-21",
-      "days_left": 19,
+      "days_left": 18,
       "urgency": "NOTICE",
       "name": "AI in Healthcare — Orlando (MI10)",
       "source": "CAMPAIGNS/MI10-ORLANDO-2026.md"
     },
     {
       "date": "2026-07-17",
-      "days_left": 76,
+      "days_left": 75,
       "urgency": "INFO",
       "name": "CAOH 2026 Annual Scientific Conference — CaribChat Launch",
       "source": "CAMPAIGNS/CAOH-2026.md"
