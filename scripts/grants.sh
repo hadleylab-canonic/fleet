@@ -31,7 +31,7 @@ for f in "${REPO_DIR}"/CAMPAIGNS/*.md; do
   [ "$DAYS_LEFT" -le 7 ] && [ "$DAYS_LEFT" -ge 0 ] && ALERT_COUNT=$((ALERT_COUNT + 1))
   DEADLINES=$(echo "$DEADLINES" | jq --arg d "$DATE" --arg dl "$DAYS_LEFT" --arg u "$URGENCY" \
     --arg n "$EVENT" --arg s "CAMPAIGNS/$NAME.md" \
-    '. + [{date: $d, days_left: ($dl | tonumber), urgency: $u, name: $n, source: $s}]')
+    '. + [{date: $d, days_left: ($dl | tonumber), urgency: $u}]')
 done
 
 # Scan grant ROADMAPs for checkbox items with dates
@@ -53,7 +53,7 @@ for f in "${REPO_DIR}"/GRANTS/*/ROADMAP.md; do
     [ "$DAYS_LEFT" -le 7 ] && [ "$DAYS_LEFT" -ge 0 ] && ALERT_COUNT=$((ALERT_COUNT + 1))
     DEADLINES=$(echo "$DEADLINES" | jq --arg d "$DATE" --arg dl "$DAYS_LEFT" --arg u "$URGENCY" \
       --arg n "$LABEL" --arg s "GRANTS/$GRANT/ROADMAP.md" \
-      '. + [{date: $d, days_left: ($dl | tonumber), urgency: $u, name: $n, source: $s}]')
+      '. + [{date: $d, days_left: ($dl | tonumber), urgency: $u}]')
   done
 done
 
@@ -64,7 +64,7 @@ jq -n --argjson deadlines "$DEADLINES" --arg ts "$NOW" --argjson ac "$ALERT_COUN
   '{_generated: true, task: "GRANTS", timestamp: $ts, deadlines: $deadlines, alert_count: $ac}' > "$OUT"
 
 if [ "$ALERT_COUNT" -gt 0 ]; then
-  URGENT=$(echo "$DEADLINES" | jq -r '[.[] | select(.days_left <= 7 and .days_left >= 0)] | .[] | "\(.name) (\(.days_left)d)"' | head -3 | tr '\n' ', ' | sed 's/,$//')
+  URGENT=$(echo "$DEADLINES" | jq -r '[.[] | select(.days_left <= 7 and .days_left >= 0)] | .[] | "deadline in \(.days_left)d"' | head -3 | tr '\n' ', ' | sed 's/,$//')
   echo "ALERT: $URGENT"
   exit 1
 fi
